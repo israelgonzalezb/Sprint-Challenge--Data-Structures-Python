@@ -19,9 +19,6 @@ class RingBuffer:
             self.ring_index = 1
             return
         
-        # if there is room in the buffer
-        # just add the new item after the current node
-        
         if self.storage.length < self.capacity:
             self.storage.add_to_tail(item)
             self.ring_index += 1
