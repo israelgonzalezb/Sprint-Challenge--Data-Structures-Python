@@ -16,6 +16,7 @@ class RingBuffer:
         if self.storage.length == 0:
             self.storage.add_to_head(item)
             self.current = self.storage.head
+            self.ring_index = 1
             return
         
         # if there is room in the buffer
@@ -30,8 +31,7 @@ class RingBuffer:
             self.current.insert_after(item)
             self.current = self.current.next
             self.ring_index += 1
-            if self.ring_index == self.capacity - 1:
-                self.storage.move_to_front(self.end)
+
 
         elif self.ring_index == self.capacity:
             self.storage.remove_from_head()
