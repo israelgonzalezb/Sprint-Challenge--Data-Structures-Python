@@ -43,5 +43,33 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
+    # We'll start at the head of the list, checking if one exists... this is called "pivot"
+    # We then check to see if the next node of the head exists
+    # Does the next node's next node exist? if so...
+    # We then set pivot's next node to be next node's next node
+    # and move the next node to the head of the list
+    # if next node's next node doesn't exist, then we set pivot's next to None and the list is reversed
+
+    if self.head:
+      pivot = self.head
+      current = self.head.get_next()
+      if current:
+        pivot_next = current.get_next()
+      else:
+        pivot_next = None
+
+    
+      while current:
+        
+        self.add_to_head(current.get_value())
+    
+        pivot.set_next(pivot_next)
+        current = pivot_next
+        if current:
+          pivot_next = current.get_next()
+        else:
+          pivot_next = None
+      else:
+        pivot.set_next(None)
+
     pass
